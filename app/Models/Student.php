@@ -19,9 +19,18 @@ class Student extends Model
         'city'
     ];
 
+    // * Casts
+
+    protected function casts(): array
+    {
+        return [
+            'date_of_birth' => 'date:d/m/Y'
+        ];
+    }
+
     // * Relations
 
-    public function school() : BelongsTo
+    public function school(): BelongsTo
     {
         return $this->belongsTo(School::class);
     }
